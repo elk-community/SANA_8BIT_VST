@@ -104,7 +104,7 @@ class SimpleSynthAudioProcessor : public AudioProcessor {
   dsp::ProcessSpec spec;
 
   //アンチエイリアスフィルタ用
-  antiAliasFilter antiAliasFilter;
+  antiAliasFilter m_antiAliasFilter;
 
   const std::int32_t upSamplingFactor = 2;
 

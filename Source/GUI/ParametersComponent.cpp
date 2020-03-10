@@ -508,7 +508,7 @@ bool MidiEchoParametersComponent::isEditable() {
 //----------------------------------------------------------------------------------------------------
 
 RangeSlider::RangeSlider(WaveformMemoryParameters* waveformMemoryParams)
-    : _waveformMemoryParamsPtr(waveformMemoryParams), waveSampleSlider{} {
+    : _waveformMemoryParamsPtr(waveformMemoryParams) {
   for (auto i = 0; i < WAVESAMPLE_LENGTH; ++i) {
     waveSampleSlider[i].setRange(0, 15, 1.0);
     waveSampleSlider[i].setValue(7, dontSendNotification);

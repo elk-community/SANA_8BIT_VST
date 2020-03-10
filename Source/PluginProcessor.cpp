@@ -295,7 +295,7 @@ void SimpleSynthAudioProcessor::prepareToPlay(double sampleRate,
   spec.numChannels = getTotalNumOutputChannels();
   spec.maximumBlockSize = samplesPerBlock;
 
-  antiAliasFilter.prepare(sampleRate, upSamplingFactor);
+  m_antiAliasFilter.prepare(sampleRate, upSamplingFactor);
 
   drive.prepare(spec);
 
@@ -414,7 +414,7 @@ void SimpleSynthAudioProcessor::processBlock(AudioBuffer<float>& buffer,
   //================================ アンチエイリアス
   //====================================
 
-  antiAliasFilter.process(buffer, upSampleBuffer, totalNumInputChannels,
+  m_antiAliasFilter.process(buffer, upSampleBuffer, totalNumInputChannels,
                           totalNumOutputChannels);
 
   //================================ エフェクトセクション
