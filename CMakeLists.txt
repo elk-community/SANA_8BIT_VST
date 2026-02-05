@@ -68,6 +68,9 @@ juce_add_plugin(SANA_8bit_VST
     PRODUCT_NAME "SANA 8bit VST"
 )
 
+# Generate JuceHeader.h for legacy compatibility
+juce_generate_juce_header(SANA_8bit_VST)
+
 # Add source files to target
 target_sources(SANA_8bit_VST PRIVATE ${PLUGIN_SOURCES})
 
