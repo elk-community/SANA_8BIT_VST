@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../JuceLibraryCode/JuceHeader.h"
+#include <JuceHeader.h>
 #include "AmpEnvelope.h"
 #include "ColorEnvelope.h"
 #include "MIDIEcho.h"

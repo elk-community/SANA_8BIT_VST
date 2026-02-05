@@ -66,3 +66,15 @@ extras/Projucer/JUCECompileEngine.dylib
 /Builds
 /PreBuilds/**/*.exp
 /PreBuilds/**/*.lib
+
+# CMake
+/build/
+cmake-build-*/
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+*.cmake
+
+# JUCE (cloned for local development)
+/JUCE/

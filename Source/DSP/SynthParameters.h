@@ -1,5 +1,5 @@
 #pragma once
-#include "../JuceLibraryCode/JuceHeader.h"
+#include <JuceHeader.h>
 
 namespace {
 const std::int32_t WAVESAMPLE_LENGTH = 32;

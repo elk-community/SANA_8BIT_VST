@@ -1,5 +1,5 @@
 #include <math.h>
-#include "../JuceLibraryCode/JuceHeader.h"
+#include <JuceHeader.h>
 
 /*
 --------------------------------------------------------------------------------

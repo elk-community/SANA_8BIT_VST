@@ -11,7 +11,7 @@
 #pragma once
 
 // ①JUCEライブラリのヘッダをインクルードする。
-#include "../JuceLibraryCode/JuceHeader.h"
+#include <JuceHeader.h>
 
 // ②クラス宣言。SynthesiserSoundクラスを継承する。
 class SimpleSound : public SynthesiserSound {

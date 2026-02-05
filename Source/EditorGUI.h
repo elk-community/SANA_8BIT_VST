@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../JuceLibraryCode/JuceHeader.h"
+#include <JuceHeader.h>
 #include "GUI/ParametersComponent.h"
 #include "GUI/ScopeComponent.hpp"
 
