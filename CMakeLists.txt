@@ -71,6 +71,9 @@ juce_add_plugin(SANA_8bit_VST
 # Generate JuceHeader.h for legacy compatibility
 juce_generate_juce_header(SANA_8bit_VST)
 
+# Disable Unity Build to avoid include order issues
+set_target_properties(SANA_8bit_VST PROPERTIES UNITY_BUILD OFF)
+
 # Add source files to target
 target_sources(SANA_8bit_VST PRIVATE ${PLUGIN_SOURCES})
 
@@ -79,6 +82,7 @@ target_include_directories(SANA_8bit_VST PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/Source
     ${CMAKE_CURRENT_SOURCE_DIR}/Source/DSP
     ${CMAKE_CURRENT_SOURCE_DIR}/Source/GUI
+    ${CMAKE_BINARY_DIR}/SANA_8bit_VST_artefacts/JuceLibraryCode
 )
 
 # Preprocessor definitions
@@ -88,6 +92,11 @@ target_compile_definitions(SANA_8bit_VST PUBLIC
     JUCE_VST3_CAN_REPLACE_VST2=0
     JUCE_DISPLAY_SPLASH_SCREEN=1
 )
+
+# Force UTF-8 encoding for MSVC (fixes Japanese comments in source files)
+if(MSVC)
+    target_compile_options(SANA_8bit_VST PRIVATE /utf-8)
+endif()
 
 # Link JUCE modules
 target_link_libraries(SANA_8bit_VST
