@@ -12,13 +12,7 @@ if(APPLE)
     set(CMAKE_OSX_DEPLOYMENT_TARGET "10.13" CACHE STRING "Minimum macOS deployment version")
 endif()
 
-# JUCE path - can be overridden via -DJUCE_DIR=<path>
-if(NOT DEFINED JUCE_DIR)
-    set(JUCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/JUCE")
-endif()
-
-# Add JUCE
-add_subdirectory(${JUCE_DIR} JUCE)
+find_package(JUCE CONFIG REQUIRED)        # If you've installed JUCE to your system
 
 # Plugin sources
 set(PLUGIN_SOURCES
@@ -62,8 +56,9 @@ juce_add_plugin(SANA_8bit_VST
     COPY_PLUGIN_AFTER_BUILD FALSE
     PLUGIN_MANUFACTURER_CODE Msmr
     PLUGIN_CODE Sana
-    FORMATS VST3 AU Standalone
+    FORMATS VST3
     VST3_CATEGORIES Instrument Synth
+    VST3_AUTO_MANIFEST FALSE
     AU_MAIN_TYPE kAudioUnitType_MusicDevice
     PRODUCT_NAME "SANA 8bit VST"
 )
@@ -119,6 +114,5 @@ target_link_libraries(SANA_8bit_VST
         juce::juce_video
     PUBLIC
         juce::juce_recommended_config_flags
-        juce::juce_recommended_lto_flags
         juce::juce_recommended_warning_flags
 )

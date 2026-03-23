@@ -202,7 +202,7 @@ void PluginProcessor::prepareToPlay(double sampleRate, int32_t samplesPerBlock) 
   spec.maximumBlockSize = samplesPerBlock;
   initEffecters(spec);
 
-  antiAliasFilter.prepare((int32_t)sampleRate, UP_SAMPLING_FACTOR);
+  antiAliasFilterObj.prepare((int32_t)sampleRate, UP_SAMPLING_FACTOR);
 }
 
 void PluginProcessor::processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiMessages) {
@@ -223,7 +223,7 @@ void PluginProcessor::processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiM
   synth.renderNextBlock(upSampleBuffer, midiMessages, 0, upSampleBuffer.getNumSamples());
 
   // アンチエイリアス
-  antiAliasFilter.process(buffer, upSampleBuffer, getTotalNumInputChannels(), getTotalNumOutputChannels());
+  antiAliasFilterObj.process(buffer, upSampleBuffer, getTotalNumInputChannels(), getTotalNumOutputChannels());
 
   // エフェクトセクション
   dsp::AudioBlock<float> audioBlock(buffer);

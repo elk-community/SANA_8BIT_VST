@@ -58,7 +58,7 @@ class PluginProcessor : public BaseAudioProcessor {
   std::int32_t currentProgIndex;
 
   //アンチエイリアスフィルタ用
-  antiAliasFilter antiAliasFilter;
+  antiAliasFilter antiAliasFilterObj;
 
   // DSPエフェクト，クリッパー，ドライブ，フィルタ
   dsp::WaveShaper<float> clipper;
